@@ -9,11 +9,25 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private var router: HomeRouter!
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        router = HomeRouterHandler(viewController: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
         title = "Home"
-        // Do any additional setup after loading the view.
     }
     
+}
+
+private typealias HomeRouting = HomeViewController
+extension HomeRouting {
+    
+    enum HomeRoute {
+        case NewScreen
+    }
 }
